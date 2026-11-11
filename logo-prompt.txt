@@ -1,0 +1,3 @@
+Mode: built-in imagegen. Transparent background. No reference image.
+
+Use case: logo-brand. Asset type: square restaurant profile logo for the Uzbek food delivery brand lazzat.uz, to be displayed at 38px and 65px in an existing purple and white merchant dashboard. Create one polished, simple, distinctive logo: a bold rounded purple letter L integrated with a minimal warm orange serving-dish / rising steam motif. Flat, crisp, vector-like brand illustration, balanced square composition, readable silhouette, generous outer padding, no gradients, no shadows, no mockup. Colors: rich purple #7129e5 and a restrained warm orange accent. Background must be truly transparent. No text or wordmark, just the symbol. Do not imitate an existing company logo.
