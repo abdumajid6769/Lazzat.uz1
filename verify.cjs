@@ -7,6 +7,9 @@ const context = vm.createContext({ console, Intl, Date, structuredClone, setTime
  localStorage:{getItem:key=>storage.get(key)||null,setItem:(key,value)=>storage.set(key,value)},
  document:{querySelector:element,querySelectorAll:()=>[],addEventListener(){},activeElement:{}},window:{addEventListener(){},scrollTo(){}}
 });
+vm.runInContext(fs.readFileSync(__dirname+'/dist/shared.js','utf8'),context);
+vm.runInContext(fs.readFileSync(__dirname+'/dist/access.js','utf8'),context);
+vm.runInContext(fs.readFileSync(__dirname+'/dist/courier-core.js','utf8'),context);
 vm.runInContext(fs.readFileSync(__dirname+'/dist/app.js','utf8'),context);
 const run = source => vm.runInContext(source,context);
 let checks = 0;

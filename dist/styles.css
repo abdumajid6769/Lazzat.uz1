@@ -7,3 +7,5 @@
 @media print{body>*{display:none!important}.receipt{display:block!important;width:76mm;color:black;font-family:monospace;font-size:12px;padding:8px}.receipt h2{text-align:center;font-size:18px}.receipt table{white-space:normal}.receipt td{padding:7px 0;font-size:11px;color:black}.receipt hr{border:0;border-top:1px dashed black}.receipt p{text-align:center}}
 
 .brand-mark.brand-logo{background:white;padding:2px;border:1px solid var(--line)}.brand-logo img{width:36px;height:36px;display:block;object-fit:contain}.avatar img{object-fit:contain;padding:3px;background:white}@media(max-width:580px){.brand-logo img{width:29px;height:29px}}
+.demo-identity{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted)}.demo-identity select{max-width:185px;border:1px solid var(--line);padding:8px;border-radius:7px;color:var(--purple);background:white;font-size:10px}@media(max-width:850px){#topbar{height:auto;min-height:83px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}.top-actions{flex-wrap:wrap;gap:8px}.demo-identity select{max-width:160px}}
+.order-buttons{flex-wrap:wrap}#sidebar{overflow-y:auto}

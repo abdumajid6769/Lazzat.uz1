@@ -1,0 +1,11 @@
+'use strict';
+(function(){
+ const panels=[['seller.html','Sotuvchi'],['owner.html','Biznes egasi'],['courier.html','Kuryer']];
+ if(document.body.classList.contains('suite-home')){
+  function refresh(){try{const raw=localStorage.getItem('teztaom-seller-v1'),s=raw?JSON.parse(raw):seed();if(!Array.isArray(s.orders)||!Array.isArray(s.branches)||!Array.isArray(s.staff))throw Error();const orders=s.orders.filter(o=>canBranch(s,o.branch)),branches=scopedBranches(s);const rows=[['Buyurtmalar',orders.length,'Tanlangan xodim ruxsatlari bo‘yicha'],['Faol yetkazmalar',orders.filter(o=>['assigned','picked_up'].includes(o.delivery?.status)).length,'Kuryerga biriktirilgan'],['Faol filiallar',branches.filter(b=>b.active).length,'Buyurtmalarni tayyorlaydi'],['Yetkazilgan',orders.filter(o=>o.delivery?.status==='delivered').length,'Mijozga topshirilgan']];document.querySelector('#hub-stats').innerHTML=rows.map(([t,n,hint])=>`<article><span>${t}</span><strong>${n}<small> ta</small></strong><p>${hint}</p></article>`).join('');document.querySelector('#hub-status').textContent=raw?'Umumiy demo ma’lumotlari o‘qildi.':'Boshlang‘ich demo. Kabinetga kirganingizda ishni boshlashingiz mumkin.';}catch{document.querySelector('#hub-stats').innerHTML='<p class="notice">Demo ma’lumotlarini o‘qib bo‘lmadi. Kabinetdagi zaxira nusxani tekshiring.</p>';document.querySelector('#hub-status').textContent='Ma’lumotlar o‘zgartirilmadi.';}}
+  refresh();window.addEventListener('storage',e=>{if(e.key==='teztaom-seller-v1')refresh();});window.addEventListener('pageshow',refresh);return;
+ }
+ const current=location.pathname.split('/').pop();const bar=document.createElement('div');bar.className='suite-bar';bar.innerHTML=`<a class="suite-logo" href="index.html" aria-label="Yagona bosh sahifa"><img src="assets/lazzat-logo.png" width="30" height="30" alt=""><strong>Lazzat</strong><span>Bosh sahifa</span></a><nav aria-label="Kabinetlar orasida almashish">${panels.map(([file,name])=>`<a href="${file}" ${file===current?'aria-current="page" class="selected"':''}>${name}</a>`).join('')}</nav><span class="suite-mode">Demo tizim</span>`;document.body.classList.add('suite-integrated');document.body.prepend(bar);
+ // A restored cabinet must read changes made while another cabinet was open.
+ window.addEventListener('pageshow',e=>{if(e.persisted)location.reload();});
+})();
